@@ -28,15 +28,21 @@ public class MarkdownParseTest {
 
     @Test
     public void getLinks3() throws IOException {
-        //failed test
         Path filename = Path.of("testFile3.md");
         String contents = Files.readString(filename);
-        assertEquals(List.of("https://link1"), MarkdownParse.getLinks(contents));
+        assertEquals(List.of("https://link1.com"), MarkdownParse.getLinks(contents));
     }
 
     @Test
     public void getLinks4() throws IOException {
         Path filename = Path.of("testFile4.md");
+        String contents = Files.readString(filename);
+        assertEquals(List.of(), MarkdownParse.getLinks(contents));
+    }
+
+    @Test
+    public void testInfLoop() throws IOException {
+        Path filename = Path.of("test-file4.md");
         String contents = Files.readString(filename);
         assertEquals(List.of(), MarkdownParse.getLinks(contents));
     }
