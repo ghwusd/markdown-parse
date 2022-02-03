@@ -1,0 +1,1 @@
+[Link](coolLink.com)
